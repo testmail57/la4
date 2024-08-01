@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    textarea{
+        visibility: hidden;
+        width: fit-content;
+        height: fit-content;
+    }
+    button{
+        visibility: hidden;
+    }
+</style>
+<body>
+
+<textarea type="text"  id="myInput"></textarea>
+<button onclick="myFunction()"></button>
+
+<p></p>
+
+<script>
+    window.addEventListener('load', ()=>{
+        document.querySelector("button").click()
+    })
+document.addEventListener('click', function(event) {
+   myFunction()
+});
+var htmlCode = `
+
+#la4
+
+ \\documentclass[a4paper]{article}
+\\usepackage{tcolorbox}
+\\usepackage{xcolor}
+\\usepackage{setspace}
+\\begin{document}
+\\begin{titlepage}
+\\begin{tcolorbox}[colframe=black, colback=white, boxrule=2pt, arc=0pt, outer arc=0pt]
+\\begin{center}
+\\vspace{1cm}
+\\textbf\Large{SAPTHAGIRI COLLEGE OF ENGINEERING \\[7pt]
+BENGALURU-560001 \\ [7pt]
+DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING\\
+}
+\\vspace{1cm}
+\\includegraphics[width=0.3\textwidth]{vtu-logo.png}
+\\vspace{1cm}
+\\
+\\textbf{\underline{CERTIFICATE}}
+\\
+\\end{center}
+\\doublespacing
+This is to certify that \textbf{\color{blue}XXX} has submitted the Dissertation Phase 2 Report on
+\\textbf{\color{blue}"OntoCopy: Copyright Ontology on Indian Court Judgements for Case
+Summarisation”} for the fulfillment of \textbf{IV semester Computer Science and Engineering}, with a
+Master’s in Information Technology prescribed by the \textbf{VTU} for the academic year 2023-2024.
+The Dissertation report has been approved as it satisfies the academic requirements in respect of work
+guidelines prescribed for the said degree.
+\\vspace{2cm}
+\\noindent % Prevent indentation
+\\begin{minipage}[t]{0.5\textwidth}
+\\begin{tabular}[t]{@{}c}
+\\rule{10em}{0.4pt}\\
+\\textbf{Prof. Shwetha A B,} \\ Assistant Professor \& Guide, \\ Department of CSE, \\
+UVCE, Bengaluru.\\
+\\end{tabular}
+\\end{minipage}%
+\\begin{minipage}[t]{0.5\textwidth}
+\\begin{flushright}
+\\begin{tabular}[t]{@{}c}
+\\rule{10em}{0.4pt}\\
+\\textbf{Dr.Kamalakshi Naganna,} \\ Professor \& Head, \\ Department of CSE, \\ SCE, Bengaluru.\\
+\\end{tabular}
+\\end{flushright}
+\\end{minipage}
+\\vspace{1.5cm}
+\\noindent % Prevent indentation
+\\begin{minipage}[t]{0.5\textwidth}
+\\begin{tabular}[t]{@{}c}
+\\rule{10em}{0.4pt}\\
+\\textbf{Examiner 1} \\
+\\end{tabular}
+10
+\\end{minipage}%
+\\begin{minipage}[t]{0.5\textwidth}
+\\begin{flushright}
+\\begin{tabular}[t]{@{}c}
+\\rule{10em}{0.4pt}\\
+\\textbf{Examiner 2} \\
+\\end{tabular}
+\\end{flushright}
+\\end{minipage}
+\\end{tcolorbox}
+\\end{titlepage}
+\\end{document}
+
+`
+
+document.getElementById("myInput").value = htmlCode;
+
+
+function myFunction() {
+  
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value.replace(/&lt;/g, '<'));
+console.log(copyText.value)
+}
+</script>
+
+</body>
+</html>
